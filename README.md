@@ -1,6 +1,10 @@
 # xml-roundtrip-validator
 
-The Go module `github.com/mattermost/xml-roundtrip-validator` implements mitigations for multiple security issues in Go's `encoding/xml`. Applications that use `encoding/xml` for security-critical operations, such as XML signature validation and SAML, may use the `Validate` and `ValidateAll` functions to avoid impact from malicious XML inputs.
+This is a fork of `github.com/mattermost/xml-roundtrip-validator` 
+In order to support go 1.14- where errors.As is not supported
+
+
+The Go module `github.com/demisto/xml-roundtrip-validator` implements mitigations for multiple security issues in Go's `encoding/xml`. Applications that use `encoding/xml` for security-critical operations, such as XML signature validation and SAML, may use the `Validate` and `ValidateAll` functions to avoid impact from malicious XML inputs.
 
 ## Usage
 
@@ -10,7 +14,7 @@ The Go module `github.com/mattermost/xml-roundtrip-validator` implements mitigat
 import (
     "strings"
 
-    xrv "github.com/mattermost/xml-roundtrip-validator"
+    xrv "github.com/demisto/xml-roundtrip-validator"
 )
 
 func DoStuffWithXML(input string) {
@@ -28,7 +32,7 @@ func DoStuffWithXML(input string) {
 import (
     "strings"
 
-    xrv "github.com/mattermost/xml-roundtrip-validator"
+    xrv "github.com/demisto/xml-roundtrip-validator"
 )
 
 func DoStuffWithXML(input string) {

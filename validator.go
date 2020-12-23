@@ -3,7 +3,6 @@ package validator
 import (
 	"bytes"
 	"encoding/xml"
-	"errors"
 	"fmt"
 	"io"
 )
@@ -82,8 +81,8 @@ func ValidateAll(xmlReader io.Reader) []error {
 			// reached the end with no additional errors
 			break
 		}
-		validationError := XMLValidationError{}
-		if errors.As(err, &validationError) {
+		validationError, ok := err.(XMLValidationError)
+		if ok {
 			// validation errors contain line numbers and offsets, but
 			// these offsets are based on the offset where Validate
 			// was called, so they need to be adjusted to accordingly

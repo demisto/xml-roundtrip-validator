@@ -1,4 +1,4 @@
-module github.com/mattermost/xml-roundtrip-validator
+module github.com/demisto/xml-roundtrip-validator
 
 go 1.14
 

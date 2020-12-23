@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	validator "github.com/mattermost/xml-roundtrip-validator"
+	validator "github.com/demisto/xml-roundtrip-validator"
 )
 
 func main() {
@@ -15,13 +15,13 @@ func main() {
 	file := flag.Arg(0)
 
 	if file == "" {
-		fmt.Fprintln(os.Stderr, "Specify a filename")
+		_, _ = fmt.Fprintln(os.Stderr, "Specify a filename")
 		os.Exit(1)
 	}
 
 	f, err := os.Open(file)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "%v\n", err)
+		_, _ = fmt.Fprintf(os.Stderr, "%v\n", err)
 		os.Exit(1)
 	}
 
@@ -32,7 +32,7 @@ func main() {
 			os.Exit(0)
 		}
 		for _, err := range errs {
-			fmt.Fprintf(os.Stderr, "%v\n", err)
+			_, _ = fmt.Fprintf(os.Stderr, "%v\n", err)
 		}
 		os.Exit(1)
 	} else {
@@ -41,7 +41,7 @@ func main() {
 			fmt.Println("Document validated without errors")
 			os.Exit(0)
 		}
-		fmt.Fprintf(os.Stderr, "%v\n", err)
+		_, _ = fmt.Fprintf(os.Stderr, "%v\n", err)
 		os.Exit(1)
 	}
 }
